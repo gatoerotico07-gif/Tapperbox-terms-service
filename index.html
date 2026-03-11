@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TapperBox-Términos & Condiciones</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+    margin:0;
+    font-family:'Press Start 2P', cursive;
+    color:white;
+    background-image:url("fondo.png");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    overflow-x:hidden;
+}
+
+/* MENU */
+
+.menu-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-size:28px;
+    cursor:pointer;
+    z-index:20;
+}
+
+.menu{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:200px;
+    height:100%;
+    background:rgba(0,0,0,0.95);
+    border-right:3px solid white;
+    padding-top:80px;
+    transition:0.3s;
+    z-index:15;
+}
+
+.menu a{
+    display:block;
+    padding:20px;
+    color:white;
+    text-decoration:none;
+    font-size:12px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.menu a:hover{
+    background:white;
+    color:black;
+}
+
+/* capa oscura */
+.overlay{
+    background:rgba(0,0,0,0.65);
+    min-height:100vh;
+    padding:40px 20px;
+    position:relative;
+    z-index:5;
+}
+
+/* caja */
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+    background:rgba(0,0,0,0.8);
+    border:4px solid white;
+    box-shadow:0 0 20px white;
+    line-height:1.8;
+}
+
+/* texto */
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+h3{
+    margin-top:30px;
+}
+
+p, li{
+    font-size:12px;
+}
+
+ul{
+    margin-left:20px;
+}
+
+/* estrellas */
+
+.star{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+    z-index:1;
+}
+
+@keyframes twinkle{
+    0%{opacity:0.2;}
+    50%{opacity:1;}
+    100%{opacity:0.2;}
+}
+
+/* cometas */
+
+.comet{
+    position:fixed;
+    width:4px;
+    height:4px;
+    background:white;
+    box-shadow:0 0 10px white, 0 0 20px white;
+    z-index:2;
+}
+
+.comet::after{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:2px;
+    background:linear-gradient(to right, white, transparent);
+    left:-80px;
+    top:1px;
+}
+
+footer{
+    text-align:center;
+    margin-top:40px;
+    font-size:10px;
+    opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BOTON MENU -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+<a href="https://dnx-studios.github.io/TapperBox.bot/">Inicio</a>
+<a href="https://gatoerotico07-gif.github.io/Tapperbox-privacy/">P&P</a>
+</div>
+
+<div class="overlay">
+
+<div class="container">
+
+<h1>Términos y Condicione– TapperBox</h1>
+
+<p><b>Última actualización: 27 de febrero de 2026</b></p>
+
+<p>
+Estos Términos regulan el uso de TapperBox dentro de la plataforma Discord.
+Al usar el bot, aceptas estas condiciones.
+</p>
+
+<h3>1. Uso del bot</h3>
+
+<p>TapperBox debe utilizarse de manera respetuosa y conforme a las normas de Discord.</p>
+
+<p>No está permitido:</p>
+
+<ul>
+<li>Usar el bot para actividades ilegales</li>
+<li>Intentar explotar errores o vulnerabilidades</li>
+<li>Utilizar el bot para spam o abuso</li>
+</ul>
+
+<h3>2. Disponibilidad</h3>
+
+<p>
+El bot puede estar en mantenimiento o presentar fallos ocasionales.
+No garantizamos disponibilidad continua ni libre de errores.
+</p>
+
+<h3>3. Responsabilidad</h3>
+
+<p>El desarrollador no se hace responsable por:</p>
+
+<ul>
+<li>Pérdida de datos</li>
+<li>Conflictos entre usuarios</li>
+<li>Uso indebido del bot</li>
+</ul>
+
+<h3>4. Suspensión</h3>
+
+<p>
+Nos reservamos el derecho de bloquear usuarios o servidores
+que incumplan estos términos.
+</p>
+
+<h3>5. Cambios en los términos</h3>
+
+<p>
+Estos Términos pueden modificarse en cualquier momento.
+El uso continuo del bot implica la aceptación de los cambios.
+</p>
+
+<footer>
+TapperBox © 2026
+</footer>
+
+</div>
+
+</div>
+
+<script>
+
+/* MENU */
+
+function toggleMenu(){
+let menu=document.getElementById("menu")
+
+if(menu.style.left==="0px"){
+menu.style.left="-250px"
+}else{
+menu.style.left="0px"
+}
+}
+
+/* estrellas */
+
+for(let i=0;i<60;i++){
+
+let star=document.createElement("div")
+star.className="star"
+
+star.style.left=Math.random()*100+"%"
+star.style.top=Math.random()*100+"%"
+star.style.animationDelay=Math.random()*3+"s"
+
+document.body.appendChild(star)
+
+}
+
+/* cometas */
+
+function createComet(){
+
+let comet=document.createElement("div")
+comet.className="comet"
+
+let startY=Math.random()*window.innerHeight
+comet.style.top=startY+"px"
+comet.style.left="-100px"
+
+document.body.appendChild(comet)
+
+let pos=-100
+
+let interval=setInterval(()=>{
+
+pos+=10
+comet.style.left=pos+"px"
+comet.style.top=(startY + pos*0.2)+"px"
+
+if(pos>window.innerWidth+100){
+clearInterval(interval)
+comet.remove()
+}
+
+},20)
+
+}
+
+setInterval(()=>{
+
+if(Math.random()<0.6){
+createComet()
+}
+
+},3000)
+
+</script>
+
+</body>
+</html>
